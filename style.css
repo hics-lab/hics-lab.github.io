@@ -1,0 +1,339 @@
+/* HICS Lab homepage
+   기본은 한 줄로 쌓는 배치, 넓은 화면(1100px 이상)에서만 여러 단으로 나눔 (아래쪽)
+   색은 맨 위 :root 에서 한 번에 바꿀 수 있음 */
+
+:root {
+  --ink: #1c2333;      /* 본문 글자 */
+  --sub: #5a6375;      /* 보조 글자 */
+  --faint: #8a92a1;    /* 더 옅은 글자 */
+  --line: #e1e4e9;     /* 테두리 */
+  --soft: #f4f5f7;     /* 옅은 바탕 */
+  --red: #a3232d;      /* 세종대 붉은색 */
+  --link: #1f4e9e;
+  --ana-bg: #fbf1f0;
+  --dig: #44598a;
+  --dig-bg: #eef2f8;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard", "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: #fff;
+  word-break: keep-all;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#wrap {
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* 화면 양끝까지 바탕색을 채우는 띠 (머리 · 첫 화면 · 꼬리) */
+#top, .rowA, #foot {
+  box-shadow: 0 0 0 100vmax var(--band, #fff);
+  clip-path: inset(0 -100vmax);
+  background: var(--band, #fff);
+}
+
+/* ---- 머리 : 왼쪽 이름, 오른쪽 메뉴 ---- */
+#top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  padding: 13px 0;
+}
+#top .brand { display: flex; align-items: center; gap: 13px; color: var(--ink); }
+#top .brand:hover { text-decoration: none; }
+#top .brand img { width: 46px; height: auto; }
+#top .name { display: block; font-size: 21px; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+#top .sub { display: block; font-size: 13.5px; color: var(--sub); margin-top: 2px; }
+
+#menu { font-size: 15.5px; font-weight: 500; }
+#menu a {
+  margin-left: 6px;
+  padding: 7px 12px;
+  color: var(--sub);
+  white-space: nowrap;
+  border-radius: 6px;
+}
+#menu a:first-child { margin-left: 0; }
+#menu a:hover { text-decoration: none; background: var(--soft); color: var(--ink); }
+#menu a.here { color: var(--red); font-weight: 700; background: var(--ana-bg); }
+
+/* 머리 아래 가는 줄 */
+#top { border-bottom: 1px solid var(--line); }
+
+/* ---- 본문 공통 ---- */
+h1 { font-size: 28px; line-height: 1.3; margin: 30px 0 12px 0; letter-spacing: -0.02em; }
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 38px 0 14px 0;
+  padding-left: 12px;
+  border-left: 4px solid var(--red);
+  line-height: 1.25;
+}
+h2 .h2en { font-size: 14px; font-weight: 400; color: var(--faint); margin-left: 8px; letter-spacing: 0; }
+h3 { font-size: 17px; margin: 20px 0 5px 0; }
+p { margin: 7px 0; }
+ul, ol { margin: 6px 0; padding-left: 22px; }
+li { margin-bottom: 4px; }
+
+.en { color: var(--faint); font-size: 14px; }
+.small { font-size: 14px; color: var(--sub); font-weight: 400; letter-spacing: 0; }
+
+/* ---- Home 1줄 : 소개 | 칩 안에서 하는 일 | 칩 사진 ---- */
+.rowA { --band: var(--soft); padding: 14px 0 26px 0; }
+.intro-text h1 { font-size: 27px; margin: 18px 0 12px 0; }
+.intro-text p { font-size: 17px; color: var(--sub); }
+.intro-text p b { color: var(--ink); }
+.intro-text p.en { font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 14px; }
+
+.chainbox {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px 14px 18px;
+  margin-top: 18px;
+}
+.chainbox h2 { margin: 0 0 12px 0; font-size: 15px; color: var(--sub); border: 0; padding: 0; font-weight: 600; }
+
+.intro-fig { max-width: 300px; margin-top: 18px; }
+.intro-fig img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 8px; }
+.cap { font-size: 13px; color: var(--sub); line-height: 1.5; margin-top: 7px; }
+
+.chain { display: flex; align-items: stretch; gap: 8px; margin: 0 0 8px 0; }
+.chain .box {
+  flex: 1;
+  border: 1.5px solid #b9bfc9;
+  border-radius: 8px;
+  padding: 9px 6px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+  background: #fff;
+}
+.chain .box small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); margin-top: 2px; }
+.chain .box.ana { border-color: var(--red); background: var(--ana-bg); }
+.chain .box.dig { border-color: var(--dig); background: var(--dig-bg); }
+.chain .box.plain { border-style: dashed; }
+.chain .arr { align-self: center; font-size: 18px; color: var(--faint); }
+.chain.under { margin-bottom: 0; }
+.chain.under .box { flex: 0 0 170px; }
+.chain.under .note { align-self: center; font-size: 13.5px; color: var(--sub); margin-left: 8px; line-height: 1.7; }
+.key { display: inline-block; width: 12px; height: 12px; vertical-align: -1px; border: 1.5px solid #999; border-radius: 3px; }
+.key.ana { border-color: var(--red); background: var(--ana-bg); }
+.key.dig { border-color: var(--dig); background: var(--dig-bg); }
+
+/* ---- Home 2줄 : 연구 분야 카드 ---- */
+.cols4 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.cols4 .col {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.cols4 .col:hover { border-color: #c3c9d3; }
+.pics { display: flex; gap: 2px; background: var(--line); }
+.pics img {
+  flex: 1;
+  min-width: 0;
+  width: 50%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+.cols4 .col h3 { margin: 13px 16px 3px 16px; font-size: 18px; letter-spacing: -0.01em; }
+.cols4 .col p { margin: 3px 16px; color: var(--sub); }
+.cols4 .col p.venue-line { margin: 9px 16px 14px 16px; }
+.venue-line { font-size: 12.5px; color: var(--faint); }
+
+.more {
+  margin: 16px 0 0 0;
+  padding: 10px 16px;
+  background: var(--soft);
+  border-radius: 8px;
+  font-size: 15.5px;
+  color: var(--sub);
+}
+.more b { color: var(--red); margin-right: 6px; }
+
+/* ---- Home 3줄 ---- */
+.flow { margin: 4px 0 12px 0; font-size: 15px; color: var(--faint); line-height: 2.6; }
+.flow span {
+  border: 1px solid #cfd4dc;
+  border-radius: 999px;
+  padding: 5px 13px;
+  color: var(--ink);
+  background: #fff;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.notice {
+  border-left: 3px solid var(--red);
+  background: var(--ana-bg);
+  border-radius: 0 8px 8px 0;
+  padding: 9px 16px;
+  margin: 4px 0 10px 0;
+}
+img.campus {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center 40%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* ---- Research : 글 + 그림 ---- */
+.figs { margin: 12px 0 4px 0; }
+.figs figure {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 12px 12px 0;
+  width: 190px;
+}
+.figs figure.wide { width: 270px; }
+.figs img {
+  width: 100%;
+  height: 175px;
+  object-fit: contain;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: block;
+}
+.figs figcaption { font-size: 13px; color: var(--sub); line-height: 1.45; margin-top: 5px; }
+ul.inline { padding-left: 22px; }
+
+/* ---- 교수 ---- */
+.prof { display: flex; gap: 24px; align-items: flex-start; margin-top: 14px; }
+.prof img { width: 165px; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+.prof h2 { margin-top: 0; border: 0; padding: 0; font-size: 22px; }
+.prof h3 { color: var(--red); font-size: 15px; }
+.prof h3:first-of-type { margin-top: 10px; }
+
+/* ---- 학생 표 ---- */
+table.students { border-collapse: collapse; width: 100%; margin-top: 6px; font-size: 15.5px; }
+table.students th, table.students td {
+  border-bottom: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+table.students th { background: var(--soft); font-weight: 600; color: var(--sub); font-size: 14px; }
+table.students td:first-child { font-weight: 600; }
+table.students td:first-child .small { font-weight: 400; color: var(--faint); font-size: 13px; }
+
+/* ---- 논문 ---- */
+ol.pubs li { margin-bottom: 10px; padding-left: 4px; }
+ol.pubs li::marker { color: var(--faint); font-size: 14px; }
+ol.pubs .venue { font-style: italic; color: var(--sub); }
+
+#foot {
+  --band: #1c2333;
+  margin-top: 40px;
+  padding: 16px 0;
+  font-size: 13px;
+  color: #aab2c0;
+}
+
+/* ================= 중간 폭 (태블릿 · 작은 창) ================= */
+@media (min-width: 700px) and (max-width: 1099px) {
+  .cols4 { grid-template-columns: 1fr 1fr; }
+}
+
+/* ================= 넓은 화면 (PC) : 여러 단으로 ================= */
+@media (min-width: 1100px) {
+  #wrap { max-width: 1700px; padding: 0 40px; }
+
+  .rowA {
+    display: grid;
+    grid-template-columns: 0.9fr 1.5fr 168px;
+    gap: 44px;
+    align-items: center;
+    padding: 14px 0 16px 0;
+  }
+  .intro-text h1 { font-size: 30px; margin: 0 0 8px 0; }
+  .intro-text p { font-size: 17.5px; margin: 4px 0; }
+  .intro-text p.en { margin-top: 8px; }
+  .chainbox { margin-top: 0; }
+  .chain .box { padding: 11px 6px; font-size: 17px; }
+  .chain .box small { font-size: 14px; }
+  .intro-fig { max-width: none; margin-top: 0; }
+  .cap { text-align: center; }
+
+  h2 { margin: 20px 0 11px 0; }
+
+  .cols4 { grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .pics img { height: 136px; }
+
+  .cols3 { display: grid; grid-template-columns: 1fr 1.6fr 0.85fr; gap: 44px; }
+  .cols3 h2 { margin-top: 18px; }
+  .cols3 p { margin: 5px 0; }
+  .notice { padding: 7px 16px; margin-bottom: 6px; }
+  .more { margin-top: 14px; padding: 8px 16px; }
+  img.campus { height: 54px; margin-top: 8px; }
+  #foot { margin-top: 14px; padding: 10px 0; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .two h2 { margin-top: 20px; }
+
+  .rsec { display: grid; grid-template-columns: 1fr 1.15fr; gap: 44px; align-items: start; }
+  .rsec .figs { margin-top: 4px; }
+  .figs figure { width: 172px; margin-bottom: 8px; }
+  .figs figure.wide { width: 220px; }
+  .figs img { height: 145px; }
+
+  ul.inline { padding-left: 0; list-style: none; }
+  ul.inline li { display: inline-block; margin-right: 34px; }
+  ul.inline li::before { content: "• "; color: var(--red); }
+}
+
+/* ================= 좁은 화면 (휴대폰) ================= */
+@media (max-width: 640px) {
+  #wrap { padding: 0 16px; }
+  #top { display: block; padding: 12px 0 8px 0; }
+  #top .name { font-size: 19px; }
+  #top .sub { font-size: 12.5px; }
+  #menu { font-size: 13.5px; margin: 8px 0 0 -6px; }
+  #menu a { margin-left: 0; padding: 5px 6px; display: inline-block; }
+
+  .intro-text h1 { font-size: 23px; }
+  .intro-text p { font-size: 16px; }
+  .intro-fig { max-width: 240px; }
+
+  .chain { flex-direction: column; gap: 4px; }
+  .chain .arr { transform: rotate(90deg); line-height: 1; }
+  .chain.under { margin-top: 12px; }
+  .chain.under .box { flex: 1; }
+  .chain.under .note { margin: 4px 0 0 0; align-self: flex-start; }
+
+  .pics img { height: 125px; }
+
+  .prof { display: block; }
+  .prof img { width: 130px; margin-bottom: 10px; }
+  .figs figure, .figs figure.wide { width: 100%; margin-right: 0; }
+  .figs img { height: auto; }
+
+  /* 학생 표를 한 명씩 세로로 쌓음 */
+  table.students, table.students tbody, table.students tr, table.students td { display: block; }
+  table.students tr:first-child { display: none; }
+  table.students tr { border: 1px solid var(--line); border-radius: 8px; margin-bottom: 8px; padding: 9px 12px; }
+  table.students td { border: 0; padding: 1px 0; }
+  table.students td:empty { display: none; }
+}

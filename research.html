@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research - HICS Lab</title>
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+<div id="wrap">
+
+<div id="top">
+  <a class="brand" href="index.html">
+    <img src="images/logo.png" alt="Sejong University">
+    <span>
+      <span class="name">Hyun's Integrated Circuit System Lab</span>
+      <span class="sub">HICS Lab &nbsp;|&nbsp; 세종대학교 반도체시스템공학과</span>
+    </span>
+  </a>
+  <div id="menu">
+    <a href="index.html">Home</a>
+    <a href="research.html" class="here">Research</a>
+    <a href="people.html">People</a>
+    <a href="publications.html">Publication</a>
+    <a href="education.html">Education</a>
+  </div>
+</div>
+
+<h1>Research</h1>
+<p>저전력 아날로그 · 혼성신호 회로를 설계하고, 칩으로 제작해 측정합니다. 아래 칩 사진은 논문으로 발표한 것입니다.
+<span class="small">&nbsp; <a href="#clock">발진기 · 타이머</a> &nbsp;|&nbsp; <a href="#adcpll">ADC · PLL</a> &nbsp;|&nbsp;
+<a href="#sensor">센서 인터페이스</a> &nbsp;|&nbsp; <a href="#edu">학부생 칩 설계</a> &nbsp;|&nbsp; <a href="#more">그 밖에 진행 중인 연구</a></span></p>
+
+<!-- 1 -->
+<h2 id="clock">발진기 · 타이머 <span class="h2en">Low-Power Oscillator &amp; Timer</span></h2>
+<div class="rsec">
+  <div>
+    <p>칩이 동작하려면 기준이 되는 클럭이 필요합니다. 보통은 칩 밖에 크리스털을 달지만,
+    칩 안의 저항(R)과 커패시터(C)만으로 클럭을 만들면 크기와 전력을 줄일 수 있습니다.
+    대신 잡음이 크고 온도에 따라 주파수가 변하는 문제가 있어서, 이를 줄이는 회로를 연구합니다.</p>
+    <ul>
+      <li>Design a voltage swing controlled RC oscillator by frequency error compensation loop</li>
+      <li>Noise analysis of the RC oscillator with a frequency locked loop</li>
+      <li>Compensation for a frequency variation over temperature change</li>
+      <li>A 9.6-nW wake-up timer with RC-referenced subharmonic locking</li>
+    </ul>
+  </div>
+  <div class="figs">
+    <figure>
+      <a href="images/chip_osc17.jpg"><img src="images/chip_osc17.jpg" alt="Quadrature RC oscillator chip photo"></a>
+      <figcaption>Quadrature RC oscillator<br>ISSCC 2017 · TCAS-I 2019</figcaption>
+    </figure>
+    <figure>
+      <a href="images/chip_osc22.jpg"><img src="images/chip_osc22.jpg" alt="Distributed RC oscillator chip photo"></a>
+      <figcaption>Low-noise distributed RC oscillator<br>TVLSI 2022</figcaption>
+    </figure>
+    <figure>
+      <a href="images/chip_osc25.jpg"><img src="images/chip_osc25.jpg" alt="Fully differential RC oscillator chip photo"></a>
+      <figcaption>Fully differential RC oscillator<br>TCAS-II 2025</figcaption>
+    </figure>
+    <figure>
+      <a href="images/chip_timer.jpg"><img src="images/chip_timer.jpg" alt="Wake-up timer chip photo"></a>
+      <figcaption>9.6-nW wake-up timer<br>TVLSI 2025</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- 2 -->
+<h2 id="adcpll">ADC · PLL <span class="h2en">Data Converter &amp; Clock Generation</span></h2>
+<div class="rsec">
+  <div>
+    <p>ADC 는 아날로그 전압을 디지털 숫자로 바꾸는 회로이고, PLL 은 기준 클럭에서 필요한 주파수의 클럭을 만들어 내는 회로입니다.
+    둘 다 아날로그 회로와 디지털 회로가 함께 들어가는 대표적인 혼성신호 회로입니다.</p>
+    <ul>
+      <li>SAR ADC : 커패시터 DAC 의 배열 구조를 바꿔 기생 커패시턴스와 부정합의 영향을 줄임 (보정 없이 측정)</li>
+      <li>PLL : 10 MHz 에서 3.2 GHz 까지 동작하는 self-biased adaptive bandwidth PLL</li>
+      <li>CDR : 디지털 합성으로 만든 quarter-rate CDR</li>
+      <li>온도 센서 : hybrid BJT&ndash;MOS temperature sensor (공동 연구)</li>
+    </ul>
+  </div>
+  <div class="figs">
+    <figure>
+      <a href="images/chip_adc.jpg"><img src="images/chip_adc.jpg" alt="SAR ADC chip photo"></a>
+      <figcaption>SAR ADC with split-CDAC<br>TVLSI 2026</figcaption>
+    </figure>
+    <figure>
+      <a href="images/chip_pll.jpg"><img src="images/chip_pll.jpg" alt="PLL chip photo"></a>
+      <figcaption>10 MHz to 3.2 GHz PLL<br>MWSCAS 2024</figcaption>
+    </figure>
+    <figure>
+      <a href="images/chip_temp.jpg"><img src="images/chip_temp.jpg" alt="Temperature sensor chip photo"></a>
+      <figcaption>Hybrid BJT&ndash;MOS temperature sensor<br>JSSC 2026</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- 3 -->
+<h2 id="sensor">센서 인터페이스 <span class="h2en">Low-Power Sensor Interface System</span></h2>
+<div class="rsec">
+  <div>
+    <p>센서에서 나오는 아주 작은 전류를 읽고, 디지털 값으로 바꿔서 내보내는 칩입니다.
+    전원 회로, 발진기, ADC, 통신 회로가 한 칩에 모두 들어가기 때문에 여러 회로를 함께 설계해야 합니다.</p>
+
+    <h3>A smart contact lens IC for glucose monitoring in 0.18&mu;m CMOS</h3>
+    <ul>
+      <li>Design a power management block (rectifier, regulators, bandgap voltage reference, etc.), timer, digital SD-based current ADC, RC oscillator, analog-frontend, and wireless communication block</li>
+      <li>Implement a wireless communication system using a 433MHz on-off keying modulation</li>
+      <li>Implement a wireless power transfer system using the resonance of external coils</li>
+    </ul>
+
+    <h3>A low-power sensor interface IC in 0.18&mu;m CMOS</h3>
+    <ul>
+      <li>Design a power management block (regulators, bandgap voltage reference, etc.), synthesized digital control unit, digital-based current ADC, analog-front ends and an I2C communication block</li>
+      <li>Implement a wireless gas sensing system using a designed IC and a commercial BLE chip and gas sensors.</li>
+      <li>The IC chip is used by a startup company (Nodetalks) to make a gas sensor product</li>
+    </ul>
+  </div>
+  <div class="figs">
+    <figure>
+      <a href="images/research1.png"><img src="images/research1.png" alt="Smart contact lens system"></a>
+      <figcaption>Smart contact lens system [1]</figcaption>
+    </figure>
+    <figure>
+      <a href="images/chip_lens.jpg"><img src="images/chip_lens.jpg" alt="Smart contact lens IC chip photo"></a>
+      <figcaption>Smart contact lens IC<br>VLSI 2019 · JSSC</figcaption>
+    </figure>
+    <figure>
+      <a href="images/chip_gas.jpg"><img src="images/chip_gas.jpg" alt="Sensor interface IC chip photo"></a>
+      <figcaption>Gas sensor interface IC</figcaption>
+    </figure>
+    <figure>
+      <a href="images/gas_bt.jpg"><img src="images/gas_bt.jpg" alt="무선 가스 측정 시스템 사진"></a>
+      <figcaption>칩과 BLE 를 이용한 무선 가스 측정 시스템</figcaption>
+    </figure>
+    <figure>
+      <a href="images/nt_gtag.jpg"><img src="images/nt_gtag.jpg" alt="노드톡스 가스 측정기 제품 사진"></a>
+      <figcaption>칩이 적용된 가스 측정기 제품<br>(사진 : 노드톡스)</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- 4 -->
+<h2 id="edu">학부생 칩 설계 <span class="h2en">Undergraduate Chip Design (MyChip)</span></h2>
+<div class="rsec">
+  <div>
+    <p>학부 교육도 칩 제작과 연계해서 합니다. 겨울방학에 4주 동안 회로 설계 교육을 하고,
+    교육을 마친 학생들이 내 칩(MyChip) 제작 서비스로 칩을 만들어 직접 측정합니다.</p>
+    <ul>
+      <li>교육 순서 : 설계 툴 사용법 &rarr; 2단 증폭기 &rarr; 폴디드 캐스코드 증폭기</li>
+      <li>내 칩 제작 : 2024년 발진기, 2025년 ADC, 2026년 승압 DC-DC 컨버터</li>
+      <li>2026년에는 학부 4학년 학생 3명이 승압 DC-DC 컨버터를 설계하고 측정했습니다 (1 V 입력에서 약 4 V 출력 확인).
+      이 결과로 제2회 내 칩 경진대회 본선(14팀)에 올랐습니다.</li>
+    </ul>
+  </div>
+  <div class="figs">
+    <figure>
+      <a href="images/edu_osc24.jpg"><img src="images/edu_osc24.jpg" alt="2024년 발진기 칩 레이아웃"></a>
+      <figcaption>2024 발진기 (레이아웃)</figcaption>
+    </figure>
+    <figure>
+      <a href="images/edu_adc25.jpg"><img src="images/edu_adc25.jpg" alt="2025년 ADC 칩 레이아웃"></a>
+      <figcaption>2025 ADC (레이아웃)</figcaption>
+    </figure>
+    <figure>
+      <a href="images/edu_boost_chip.jpg"><img src="images/edu_boost_chip.jpg" alt="승압 DC-DC 컨버터 칩 사진"></a>
+      <figcaption>2026 승압 DC-DC 컨버터 (칩 사진)</figcaption>
+    </figure>
+    <figure class="wide">
+      <a href="images/edu_boost_setup.jpg"><img src="images/edu_boost_setup.jpg" alt="칩 측정 환경 사진"></a>
+      <figcaption>측정 환경 : 오실로스코프, 전원 공급기, 측정용 PCB</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- 5 -->
+<h2 id="more">그 밖에 진행 중인 연구</h2>
+<ul class="inline">
+  <li><b>아날로그 CIM</b> (Computing-in-Memory)</li>
+  <li><b>RISC-V 프로세서 · AI 가속기</b></li>
+  <li><b>전원 회로</b> : LDO, DC-DC 컨버터</li>
+  <li><b>NV 양자 센싱</b> : 다이아몬드 NV 센터를 이용한 양자 센서를 CMOS 칩으로 구동하고 읽어 내는 연구 (준비 중, 초기 단계)</li>
+</ul>
+<p class="small">학생별 주제는 <a href="people.html#students">People</a> 페이지에 있습니다.</p>
+
+<p class="small">[1] D. H. Keum <i>et al.</i>, "Wireless smart contact lens for diabetic diagnosis and therapy," Science Advances, 2020.
+<a href="https://doi.org/10.1126/sciadv.aba3252">[Link]</a> &nbsp;·&nbsp; 그 밖의 논문은 <a href="publications.html">Publication</a> 페이지에 있습니다.</p>
+
+<div id="foot">
+  HICS Lab, Dept. of Semiconductor System Engineering, Sejong University &nbsp;·&nbsp; Last updated : 2026. 11.
+</div>
+
+</div>
+</body>
+</html>

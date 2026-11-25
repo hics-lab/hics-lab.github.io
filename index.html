@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HICS Lab - Hyun's Integrated Circuit System Lab</title>
+<meta name="description" content="세종대학교 반도체시스템공학과 아날로그 디지털 혼성 집적회로 연구실 (HICS Lab)">
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+<div id="wrap">
+
+<div id="top">
+  <a class="brand" href="index.html">
+    <img src="images/logo.png" alt="Sejong University">
+    <span>
+      <span class="name">Hyun's Integrated Circuit System Lab</span>
+      <span class="sub">HICS Lab &nbsp;|&nbsp; 세종대학교 반도체시스템공학과</span>
+    </span>
+  </a>
+  <div id="menu">
+    <a href="index.html" class="here">Home</a>
+    <a href="research.html">Research</a>
+    <a href="people.html">People</a>
+    <a href="publications.html">Publication</a>
+    <a href="education.html">Education</a>
+  </div>
+</div>
+
+<!-- 1줄 : 소개 | 칩 안에서 하는 일 | 칩 사진 -->
+<div class="rowA">
+  <div class="intro-text">
+    <h1>아날로그 · 디지털 혼성<br>집적회로를 설계하는 연구실</h1>
+    <p>센서 신호를 읽고, 숫자로 바꾸고,<br>클럭과 전원을 만드는 회로를 설계합니다.</p>
+    <p><b>설계한 회로는 칩으로 만들어 직접 측정합니다.</b></p>
+    <p class="en">Analog &amp; digital mixed-signal integrated circuit design</p>
+  </div>
+
+  <div class="chainbox">
+    <h2>칩 안에서 하는 일</h2>
+    <div class="chain">
+      <div class="box plain">센서<small>온도 · 가스 · 혈당</small></div>
+      <div class="arr">&rarr;</div>
+      <div class="box ana">센서 인터페이스<small>신호를 읽는다</small></div>
+      <div class="arr">&rarr;</div>
+      <div class="box ana">ADC<small>숫자로 바꾼다</small></div>
+      <div class="arr">&rarr;</div>
+      <div class="box dig">디지털 회로<small>계산 · 제어 · 통신</small></div>
+    </div>
+    <div class="chain under">
+      <div class="box ana">클럭<small>발진기 · 타이머 · PLL</small></div>
+      <div class="box ana">전원<small>LDO · DC-DC</small></div>
+      <div class="note"><span class="key ana"></span> 아날로그 &nbsp; <span class="key dig"></span> 디지털<br>붉은 테두리가 연구실에서 설계하는 회로</div>
+    </div>
+  </div>
+
+  <div class="intro-fig">
+    <a href="research.html#sensor"><img src="images/chip_lens.jpg" alt="스마트 콘택트렌즈용 칩 사진"></a>
+    <div class="cap">스마트 콘택트렌즈용 칩<br>1.5 mm &times; 1.5 mm</div>
+  </div>
+</div>
+
+<!-- 2줄 : 연구 분야 -->
+<h2>연구 분야 <span class="small">&nbsp;&rarr; 자세히 : <a href="research.html">Research</a> · <a href="publications.html">Publication</a></span></h2>
+<div class="cols4">
+
+  <div class="col">
+    <a class="pics" href="research.html#clock">
+      <img src="images/chip_timer.jpg" alt="웨이크업 타이머 칩 사진">
+      <img src="images/chip_osc22.jpg" alt="RC 발진기 칩 사진">
+    </a>
+    <h3>발진기 · 타이머</h3>
+    <p>크리스털 없이 칩 안의 R · C 로 클럭을 만듭니다.</p>
+    <p class="venue-line">ISSCC · TCAS-I · TCAS-II · TVLSI</p>
+  </div>
+
+  <div class="col">
+    <a class="pics" href="research.html#adcpll">
+      <img src="images/chip_adc.jpg" alt="SAR ADC 칩 사진">
+      <img src="images/chip_pll.jpg" alt="PLL 칩 사진">
+    </a>
+    <h3>ADC · PLL</h3>
+    <p>신호를 숫자로 바꾸고, 필요한 주파수의 클럭을 만듭니다.</p>
+    <p class="venue-line">TVLSI · MWSCAS · ELEX · ISSCC</p>
+  </div>
+
+  <div class="col">
+    <a class="pics" href="research.html#sensor">
+      <img src="images/chip_gas.jpg" alt="가스센서 인터페이스 칩 사진">
+      <img src="images/nt_gtag.jpg" alt="노드톡스 가스 측정기 제품 사진">
+    </a>
+    <h3>센서 인터페이스</h3>
+    <p>센서의 작은 전류를 읽는 칩. 스타트업 제품에 쓰였습니다.</p>
+    <p class="venue-line">VLSI · JSSC · Science Advances · TVLSI</p>
+  </div>
+
+  <div class="col">
+    <a class="pics" href="research.html#edu">
+      <img src="images/edu_osc24.jpg" alt="2024년 학부생 발진기 칩 레이아웃">
+      <img src="images/edu_adc25.jpg" alt="2025년 학부생 ADC 칩 레이아웃">
+      <img src="images/edu_boost_chip.jpg" alt="2026년 학부생 승압 DC-DC 컨버터 칩 사진">
+    </a>
+    <h3>학부생 칩 설계</h3>
+    <p>겨울방학 4주 교육 뒤, 직접 칩을 만들고 측정합니다.</p>
+    <p class="venue-line">2024 발진기 · 2025 ADC · 2026 승압 DC-DC</p>
+  </div>
+
+</div>
+
+<p class="more"><b>진행 중</b> &nbsp; 아날로그 CIM &nbsp;·&nbsp; RISC-V · AI 가속기 &nbsp;·&nbsp; 전원 회로 &nbsp;·&nbsp; NV 양자 센싱 (준비 중)</p>
+
+<!-- 3줄 : 연구실에서 하는 일 | 모집 | 연락처 -->
+<div class="cols3">
+
+  <div class="col">
+    <h2>연구실에서 하는 일</h2>
+    <div class="flow">
+      <span>회로 설계</span> &rarr; <span>시뮬레이션</span> &rarr; <span>레이아웃</span> &rarr; <span>칩 제작</span> &rarr; <span>측정</span>
+    </div>
+    <p>웹에서 바로 해 보기 :
+    <a href="https://hics-lab.github.io/icdesign/opamp_design.html">5T OTA 설계</a> ·
+    <a href="https://hics-lab.github.io/icdesign/practice.html">ngspice 시뮬레이터</a></p>
+  </div>
+
+  <div class="col">
+    <h2>Notice &nbsp;<span class="small">학부 인턴 · 대학원생 모집</span></h2>
+    <div class="notice">
+      <p><b>학부 인턴학생</b>을 모집하고 있습니다.</p>
+      <p>대학원 진학에 관심 있는 <b>3학년 2학기 · 4학년 1학기</b> 학생(전자회로 수강)은 상담을 요청 바랍니다.</p>
+      <p>문의 : <a href="mailto:jahyun@sejong.ac.kr">jahyun@sejong.ac.kr</a> 또는 충무관 928호</p>
+    </div>
+    <p class="en">We are looking for graduate students and undergraduate interns interested in analog mixed-signal IC design.</p>
+  </div>
+
+  <div class="col">
+    <h2>Contact</h2>
+    <p>
+      구자현 교수 (Prof. Jahyun Koo)<br>
+      세종대학교 충무관 928호 <span class="small">(서울 광진구 능동로 209)</span><br>
+      02-3408-3507 &nbsp;·&nbsp; <a href="mailto:jahyun@sejong.ac.kr">jahyun@sejong.ac.kr</a>
+    </p>
+    <img class="campus" src="images/campus.jpg" alt="세종대학교 캠퍼스">
+  </div>
+
+</div>
+
+<div id="foot">
+  HICS Lab, Dept. of Semiconductor System Engineering, Sejong University &nbsp;·&nbsp; Last updated : 2026. 11.
+</div>
+
+</div>
+</body>
+</html>
