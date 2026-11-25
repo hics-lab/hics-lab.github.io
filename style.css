@@ -210,26 +210,62 @@ img.campus {
 }
 
 /* ---- Research : 글 + 그림 ---- */
-.figs { margin: 12px 0 4px 0; }
-.figs figure {
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 12px 12px 0;
-  width: 190px;
+.rhead { padding: 4px 0 20px 0; }
+.rhead h1 { margin: 26px 0 6px 0; }
+.rhead .lead { color: var(--sub); margin: 0; }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.jump a, .tags span {
+  border: 1px solid #d3d7de;
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+  background: #fff;
+  white-space: nowrap;
 }
-.figs figure.wide { width: 270px; }
+.jump a:hover { text-decoration: none; border-color: var(--red); color: var(--red); }
+
+.rsec { border-top: 1px solid var(--line); padding: 26px 0 22px 0; scroll-margin-top: 8px; }
+.rtext h2 { margin: 0 0 10px 0; font-size: 22px; }
+.rtext h2 .h2en { display: block; margin: 3px 0 0 0; font-size: 13px; }
+.rtext p { color: var(--sub); margin: 0 0 12px 0; }
+ul.pts { list-style: none; padding: 0; margin: 0 0 10px 0; }
+ul.pts li {
+  position: relative;
+  padding: 7px 0 7px 16px;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+ul.pts li::before {
+  content: "";
+  position: absolute; left: 2px; top: 16px;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--red);
+}
+ul.pts li b { margin-right: 7px; }
+
+.figs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+.figs figure { margin: 0; min-width: 0; }
 .figs img {
   width: 100%;
-  height: 175px;
+  height: 150px;
   object-fit: contain;
   background: var(--soft);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 10px;
   display: block;
 }
-.figs figcaption { font-size: 13px; color: var(--sub); line-height: 1.45; margin-top: 6px; }
-ul.inline { padding-left: 22px; }
-#wrap > h2[id] { padding-top: 26px; border-top: 1px solid var(--line); }
+.figs a:hover img { border-color: #bfc5cf; }
+.figs figcaption { font-size: 12.5px; color: var(--faint); line-height: 1.45; margin-top: 7px; }
+.figs figcaption b { display: block; font-size: 14px; font-weight: 600; color: var(--ink); }
+
+.rmore { border-top: 1px solid var(--line); padding: 24px 0 0 0; }
+.rmore h2 { margin: 0 0 12px 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.tags span { background: var(--soft); border-color: var(--soft); }
 
 /* ---- 교수 ---- */
 .prof { display: flex; gap: 26px; align-items: flex-start; margin-top: 14px; }
@@ -267,6 +303,7 @@ ol.pubs .venue { font-style: italic; color: var(--sub); }
 @media (min-width: 700px) and (max-width: 1099px) {
   .cols4 { grid-template-columns: 1fr 1fr; }
   .designs { grid-template-columns: repeat(3, 1fr); }
+  .figs { grid-template-columns: repeat(4, 1fr); }
 }
 
 /* ================= 넓은 화면 (PC) : 여러 단으로 ================= */
@@ -303,16 +340,11 @@ ol.pubs .venue { font-style: italic; color: var(--sub); }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
   .two h2 { margin-top: 20px; }
 
-  .rsec { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: start; }
-  .rsec .figs { margin-top: 4px; }
-  .figs figure { width: 172px; margin-bottom: 8px; }
-  .figs figure.wide { width: 220px; }
-  .figs img { height: 145px; }
-  #wrap > h2[id] { margin-top: 26px; padding-top: 24px; }
-
-  ul.inline { padding-left: 0; list-style: none; }
-  ul.inline li { display: inline-block; margin-right: 34px; }
-  ul.inline li::before { content: "• "; color: var(--red); }
+  .rhead { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
+  .jump { margin-top: 0; }
+  .rsec { display: grid; grid-template-columns: 400px 1fr; gap: 56px; align-items: start; padding: 28px 0 24px 0; }
+  .rsec .figs { margin-top: 0; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .figs img { height: 190px; }
 }
 
 /* ================= 좁은 화면 (휴대폰) ================= */
@@ -335,8 +367,7 @@ ol.pubs .venue { font-style: italic; color: var(--sub); }
 
   .prof { display: block; }
   .prof img { width: 130px; margin-bottom: 10px; }
-  .figs figure, .figs figure.wide { width: 100%; margin-right: 0; }
-  .figs img { height: auto; }
+  .figs img { height: 130px; }
 
   /* 학생 표를 한 명씩 세로로 쌓음 */
   table.students, table.students tbody, table.students tr, table.students td { display: block; }
