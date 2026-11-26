@@ -13,6 +13,17 @@
   --link: #1f4e9e;
 }
 
+/* 페이지를 옮겨도 머리(로고 · 메뉴)가 흔들리지 않게
+   1) 스크롤바가 없는 짧은 페이지도 스크롤바 자리를 비워 둠
+   2) 페이지를 옮길 때 머리는 그대로 두고 본문만 살짝 겹쳐 바뀜 (Chrome · Edge · Safari 18.2+) */
+html { scrollbar-gutter: stable; }
+@view-transition { navigation: auto; }
+#top { view-transition-name: top; }
+::view-transition-group(root) { animation-duration: .18s; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+
 body {
   margin: 0;
   font-family: "Pretendard", "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", Arial, sans-serif;
@@ -60,12 +71,23 @@ a:hover { text-decoration: underline; }
 /* 메뉴 : 상자 없이 글자만, 지금 페이지는 아래에 붉은 줄 */
 #menu { display: flex; gap: 30px; align-self: flex-end; font-size: 15.5px; }
 #menu a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   color: var(--sub);
   font-weight: 500;
   white-space: nowrap;
   padding: 10px 1px 13px 1px;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
+}
+/* 굵은 글씨일 때의 폭을 미리 잡아 둠 → 지금 페이지가 굵어져도 옆 메뉴가 밀리지 않음 */
+#menu a::after {
+  content: attr(data-t);
+  font-weight: 700;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
 }
 #menu a:hover { text-decoration: none; color: var(--ink); }
 #menu a.here { color: var(--ink); font-weight: 700; border-bottom-color: var(--red); }
@@ -180,6 +202,14 @@ li { margin-bottom: 4px; }
 }
 .more b { color: var(--ink); margin-right: 10px; }
 
+/* ---- Home 2줄 : 아래 세부 패널 (#stage) ----
+   p-all = 연구 분야 전체, p-osc 등 = 위에서 고른 회로. 고른 회로는 목록에서 붉게 표시 */
+.dz.on { background: var(--red-soft); box-shadow: inset 3px 0 0 var(--red); }
+.dz.on b { color: var(--red); }
+.dz.on:hover { background: var(--red-soft); }
+.dpane .rtext h2 { margin: 0 0 10px 0; }
+.dpane p.dlinks { font-size: 14.5px; margin: 14px 0 0 0; color: var(--faint); }
+
 /* ---- Home 3줄 ---- */
 .flow { margin: 2px 0 12px 0; font-size: 15px; color: #b3b9c4; line-height: 2.6; }
 .flow span {
@@ -286,6 +316,14 @@ table.students th { font-weight: 600; color: var(--faint); font-size: 13px; lett
 table.students td:first-child { font-weight: 600; }
 table.students td:first-child .small { font-weight: 400; color: var(--faint); font-size: 13px; }
 
+/* ---- 강의 목록 (Education) ---- */
+table.courses { border-collapse: collapse; width: 100%; margin-top: 4px; font-size: 15.5px; }
+table.courses th, table.courses td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+table.courses th { font-weight: 600; color: var(--faint); font-size: 13px; letter-spacing: 0.02em; border-bottom-color: #cdd2da; }
+table.courses td:first-child { font-weight: 600; }
+table.courses td:first-child .small { font-weight: 400; color: var(--faint); font-size: 13px; margin-left: 4px; }
+table.courses td:last-child { color: var(--sub); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
 /* ---- 논문 ---- */
 ol.pubs li { margin-bottom: 11px; padding-left: 4px; }
 ol.pubs li::marker { color: var(--faint); font-size: 14px; }
@@ -297,6 +335,13 @@ ol.pubs .venue { font-style: italic; color: var(--sub); }
   padding: 16px 0;
   font-size: 13px;
   color: #a9b1bf;
+}
+
+/* 좁은 화면 : 고른 패널 하나만 보임 */
+@media (max-width: 1099px) {
+  #stage > .pane:not(.on) { display: none; }
+  .dpane { padding-top: 26px; scroll-margin-top: 8px; }
+  #stage { scroll-margin-top: 8px; }
 }
 
 /* ================= 중간 폭 (태블릿 · 작은 창) ================= */
@@ -329,6 +374,15 @@ ol.pubs .venue { font-style: italic; color: var(--sub); }
 
   .cols4 { grid-template-columns: repeat(4, 1fr); gap: 22px; }
   .pics img { height: 126px; }
+
+  /* 세부 패널들을 한 자리에 겹쳐 두고 고른 것만 보임 → 패널을 바꿔도 아래 줄이 움직이지 않음 */
+  #stage { display: grid; }
+  #stage > .pane { grid-area: 1 / 1; min-width: 0; }
+  #stage > .pane.on { transition: opacity .2s ease; }      /* 새 패널만 살짝 나타나고, 이전 패널은 바로 사라짐 */
+  #stage > .pane:not(.on) { visibility: hidden; opacity: 0; pointer-events: none; }
+  .dpane { display: grid; grid-template-columns: 400px 1fr; gap: 56px; align-items: start; padding-top: 20px; }
+  .dpane .figs { margin-top: 0; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .dpane .figs img { height: 190px; }
 
   .cols3 { display: grid; grid-template-columns: 1fr 1.6fr 0.85fr; gap: 48px; }
   .cols3 h2 { margin-top: 18px; }
