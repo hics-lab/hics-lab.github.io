@@ -6,7 +6,7 @@
 <title>People - HICS Lab</title>
 <link rel="icon" href="images/logo.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 <div id="wrap">
@@ -28,88 +28,64 @@
   </div>
 </div>
 
-<h1>People</h1>
-<p class="small"><a href="#professor">Professor</a> &nbsp;|&nbsp; <a href="#students">Students</a></p>
-
-<div class="two">
-<div>
-<h2 id="professor">Professor</h2>
-
-<div class="prof">
-  <img src="images/professor.png" alt="Jahyun Koo">
+<div class="rhead">
   <div>
-    <h2>Jahyun Koo, Ph.D. <span class="small">(구자현)</span></h2>
-    <p class="small"><a href="https://scholar.google.com/citations?hl=ko&amp;user=6zoOQy0AAAAJ&amp;view_op=list_works&amp;sortby=pubdate">[Google Scholar]</a></p>
-
-    <h3>Contact Information</h3>
-    <p>Tel : +82-2-3408-3507<br>
-    Email : <a href="mailto:jahyun@sejong.ac.kr">jahyun@sejong.ac.kr</a><br>
-    Office : 충무관 928호 (Chungmu-gwan 928)</p>
-
-    <h3>Education</h3>
-    <ul>
-      <li>Ph.D. in Electrical Engineering, POSTECH, 2021</li>
-      <li>M.S. in Electrical Engineering, POSTECH, 2016</li>
-      <li>B.S. in Electronic &amp; Electrical Engineering, Hongik University, 2014</li>
-    </ul>
-
-    <h3>Employment History</h3>
-    <ul>
-      <li>2023.8 &ndash; present : Assistant Professor, Dept. of Semiconductor System Engineering, Sejong University, Korea</li>
-      <li>2021.9 &ndash; 2023.8 : Postdoctoral Researcher, Dept. of Electrical and Computer Engineering, University of California, Santa Barbara, United States</li>
-      <li>2021.3 &ndash; 2021.8 : Postdoctoral Researcher, Dept. of Electrical Engineering, POSTECH, Korea</li>
-    </ul>
-
-    <h3>Fellowship</h3>
-    <ul>
-      <li>Postdoctoral Fellowship Program from National Research Foundation of Korea (Sep. 2021 &ndash; Aug. 2024)</li>
-    </ul>
+    <h1>People</h1>
+    <p class="lead">교수 1명, 대학원생 6명이 함께 연구합니다.</p>
   </div>
 </div>
 
-</div>
-<div>
-<h2 id="students">Students</h2>
+<div class="ppl">
 
-<table class="students">
-  <tr>
-    <th>Name</th>
-    <th>Course</th>
-    <th>Interest</th>
-  </tr>
-  <tr>
-    <td>홍예준, Ye Jun Hong<br><span class="small">2025.03. ~</span></td>
-    <td>M.S. Candidate</td>
-    <td>SAR ADC</td>
-  </tr>
-  <tr>
-    <td>윤성진, Seoungjin Yun<br><span class="small">2025.03. ~</span></td>
-    <td>M.S. Candidate</td>
-    <td>CIM, LDO</td>
-  </tr>
-  <tr>
-    <td>김태현, Tae Hyun Kim<br><span class="small">2026.03. ~</span></td>
-    <td>M.S. Candidate</td>
-    <td>PLL</td>
-  </tr>
-  <tr>
-    <td>이바람, Ba Ram Lee<br><span class="small">2026.03. ~</span></td>
-    <td>M.S. Candidate</td>
-    <td>RC Oscillator</td>
-  </tr>
-  <tr>
-    <td>정범수, Beom Su Jung<br><span class="small">2026.09. ~</span></td>
-    <td>M.S. Candidate</td>
-    <td>RISC-V, AI Accelerator</td>
-  </tr>
-  <tr>
-    <td>김현호, Hyun Ho Kim<br><span class="small">2026.03. ~</span></td>
-    <td>B.S &amp; M.S. Candidate</td>
-    <td>ADC &amp; DCDC Converter</td>
-  </tr>
-</table>
+<div class="psec" id="professor">
+  <h2>Professor</h2>
+  <div class="prof">
+    <img src="images/professor.png" alt="Jahyun Koo">
+    <div>
+      <p class="pname">구자현 <span>Jahyun Koo, Ph.D.</span></p>
+      <p class="prole">Assistant Professor · 세종대학교 반도체시스템공학과</p>
+      <dl class="cv contact">
+        <dt>Email</dt><dd><a href="mailto:jahyun@sejong.ac.kr">jahyun@sejong.ac.kr</a></dd>
+        <dt>Tel</dt><dd>+82-2-3408-3507</dd>
+        <dt>Office</dt><dd>충무관 928호</dd>
+        <dt>Papers</dt><dd><a href="https://scholar.google.com/citations?hl=ko&amp;user=6zoOQy0AAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar</a></dd>
+      </dl>
+    </div>
+  </div>
 
+  <h3>Education</h3>
+  <dl class="cv">
+    <dt>2021</dt><dd><b>Ph.D.</b> Electrical Engineering, POSTECH</dd>
+    <dt>2016</dt><dd><b>M.S.</b> Electrical Engineering, POSTECH</dd>
+    <dt>2014</dt><dd><b>B.S.</b> Electronic &amp; Electrical Engineering, Hongik University</dd>
+  </dl>
+
+  <h3>Employment</h3>
+  <dl class="cv">
+    <dt>2023.8 &ndash;</dt><dd><b>Assistant Professor</b> Sejong University <span class="small">Dept. of Semiconductor System Engineering</span></dd>
+    <dt>2021.9 &ndash; 2023.8</dt><dd><b>Postdoctoral Researcher</b> UC Santa Barbara <span class="small">Dept. of Electrical and Computer Engineering</span></dd>
+    <dt>2021.3 &ndash; 2021.8</dt><dd><b>Postdoctoral Researcher</b> POSTECH <span class="small">Dept. of Electrical Engineering</span></dd>
+  </dl>
+
+  <h3>Fellowship</h3>
+  <dl class="cv">
+    <dt>2021.9 &ndash; 2024.8</dt><dd><b>Postdoctoral Fellowship</b> National Research Foundation of Korea</dd>
+  </dl>
 </div>
+
+<div class="psec" id="students">
+  <h2>Students</h2>
+  <div class="stus">
+    <div class="st"><p class="sname">홍예준 <span>Ye Jun Hong</span></p><p class="what">SAR ADC</p><p class="meta">M.S. Candidate · 2025.03 ~</p></div>
+    <div class="st"><p class="sname">윤성진 <span>Seoungjin Yun</span></p><p class="what">CIM, LDO</p><p class="meta">M.S. Candidate · 2025.03 ~</p></div>
+    <div class="st"><p class="sname">김태현 <span>Tae Hyun Kim</span></p><p class="what">PLL</p><p class="meta">M.S. Candidate · 2026.03 ~</p></div>
+    <div class="st"><p class="sname">이바람 <span>Ba Ram Lee</span></p><p class="what">RC Oscillator</p><p class="meta">M.S. Candidate · 2026.03 ~</p></div>
+    <div class="st"><p class="sname">정범수 <span>Beom Su Jung</span></p><p class="what">RISC-V, AI Accelerator</p><p class="meta">M.S. Candidate · 2026.09 ~</p></div>
+    <div class="st"><p class="sname">김현호 <span>Hyun Ho Kim</span></p><p class="what">ADC, DC-DC Converter</p><p class="meta">B.S. &amp; M.S. Candidate · 2026.03 ~</p></div>
+  </div>
+  <p class="small join">학부 인턴 · 대학원생을 모집합니다. <a href="index.html#notice">Notice 보기 &rarr;</a></p>
+</div>
+
 </div>
 
 <div id="foot">

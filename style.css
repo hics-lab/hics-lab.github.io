@@ -298,23 +298,34 @@ ul.pts li b { margin-right: 7px; }
 .tags span { background: var(--soft); border-color: var(--soft); }
 
 /* ---- 교수 ---- */
-.prof { display: flex; gap: 26px; align-items: flex-start; margin-top: 14px; }
-.prof img { width: 165px; height: auto; border-radius: 10px; }
-.prof h2 { margin-top: 0; font-size: 23px; }
-.prof h3 { color: var(--red); font-size: 14px; font-weight: 600; letter-spacing: 0.01em; }
-.prof h3:first-of-type { margin-top: 10px; }
+.ppl { border-top: 1px solid var(--line); }
+.psec { padding: 24px 0 6px 0; scroll-margin-top: 8px; }
+.psec h2 { margin: 0 0 16px 0; }
+.psec h3 { color: var(--red); font-size: 13.5px; font-weight: 600; letter-spacing: 0.02em; margin: 26px 0 6px 0; }
+.prof { display: flex; gap: 26px; align-items: center; }
+.prof img { width: 150px; height: auto; border-radius: 12px; flex: 0 0 auto; }
+.pname { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; margin: 0; }
+.pname span { font-size: 15px; font-weight: 400; color: var(--sub); margin-left: 6px; letter-spacing: 0; }
+.prole { color: var(--sub); margin: 3px 0 12px 0; font-size: 15px; }
 
-/* ---- 학생 표 ---- */
-table.students { border-collapse: collapse; width: 100%; margin-top: 6px; font-size: 15.5px; }
-table.students th, table.students td {
-  border-bottom: 1px solid var(--line);
-  padding: 11px 12px;
-  text-align: left;
-  vertical-align: top;
-}
-table.students th { font-weight: 600; color: var(--faint); font-size: 13px; letter-spacing: 0.02em; border-bottom-color: #cdd2da; }
-table.students td:first-child { font-weight: 600; }
-table.students td:first-child .small { font-weight: 400; color: var(--faint); font-size: 13px; }
+/* 연도 | 내용 두 칸으로 맞춘 목록 */
+dl.cv { display: grid; grid-template-columns: 130px 1fr; margin: 0; font-size: 15.5px; }
+dl.cv dt, dl.cv dd { margin: 0; padding: 8px 0; border-top: 1px solid var(--line); line-height: 1.5; }
+dl.cv dt { color: var(--faint); font-size: 14px; font-variant-numeric: tabular-nums; padding-top: 9px; }
+dl.cv dd b { font-weight: 600; margin-right: 6px; }
+dl.cv dd .small { display: block; font-size: 13.5px; color: var(--faint); }
+dl.cv.contact { grid-template-columns: 64px 1fr; font-size: 15px; }
+dl.cv.contact dt, dl.cv.contact dd { border: 0; padding: 2px 0; }
+
+/* ---- 학생 카드 ---- */
+.stus { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.st { border: 1px solid var(--line); border-radius: 12px; padding: 15px 18px 14px 18px; background: #fff; }
+.st p { margin: 0; }
+.sname { font-size: 17.5px; font-weight: 700; letter-spacing: -0.015em; }
+.sname span { font-size: 13.5px; font-weight: 400; color: var(--faint); margin-left: 6px; letter-spacing: 0; }
+.st .what { color: var(--red); font-weight: 600; font-size: 15px; margin-top: 6px; }
+.st .meta { color: var(--sub); font-size: 13.5px; margin-top: 2px; }
+p.join { margin-top: 16px; }
 
 /* ---- 강의 목록 (Education) ---- */
 table.courses { border-collapse: collapse; width: 100%; margin-top: 4px; font-size: 15.5px; }
@@ -349,6 +360,7 @@ ol.pubs .venue { font-style: italic; color: var(--sub); }
   .cols4 { grid-template-columns: 1fr 1fr; }
   .designs { grid-template-columns: repeat(3, 1fr); }
   .figs { grid-template-columns: repeat(4, 1fr); }
+  .stus { grid-template-columns: 1fr 1fr; }
 }
 
 /* ================= 넓은 화면 (PC) : 여러 단으로 ================= */
@@ -394,6 +406,11 @@ ol.pubs .venue { font-style: italic; color: var(--sub); }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
   .two h2 { margin-top: 20px; }
 
+  .ppl { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .psec { padding-top: 26px; }
+  .psec h2 { margin: 0 0 16px 0; }
+  .stus { grid-template-columns: 1fr 1fr; gap: 14px; }
+
   .rhead { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
   .jump { margin-top: 0; }
   .rsec { display: grid; grid-template-columns: 400px 1fr; gap: 56px; align-items: start; padding: 28px 0 24px 0; }
@@ -408,7 +425,7 @@ ol.pubs .venue { font-style: italic; color: var(--sub); }
   #top .brand { padding-bottom: 6px; }
   #top .name { font-size: 18.5px; }
   #top .sub { font-size: 12.5px; }
-  #menu { gap: 16px; font-size: 14px; }
+  #menu { gap: 13px; font-size: 14px; }
   #menu a { padding: 6px 0 9px 0; }
 
   .rowA { padding: 22px 0 24px 0; }
@@ -420,13 +437,7 @@ ol.pubs .venue { font-style: italic; color: var(--sub); }
   .pics img { height: 125px; }
 
   .prof { display: block; }
-  .prof img { width: 130px; margin-bottom: 10px; }
+  .prof img { width: 120px; margin-bottom: 12px; }
+  dl.cv { grid-template-columns: 104px 1fr; }
   .figs img { height: 130px; }
-
-  /* 학생 표를 한 명씩 세로로 쌓음 */
-  table.students, table.students tbody, table.students tr, table.students td { display: block; }
-  table.students tr:first-child { display: none; }
-  table.students tr { border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; padding: 10px 14px; }
-  table.students td { border: 0; padding: 1px 0; }
-  table.students td:empty { display: none; }
 }
